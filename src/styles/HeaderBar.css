@@ -1,0 +1,19 @@
+.array-container {
+    background-color: lightblue;
+    width: 100vw;
+    padding-bottom: 0.25em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .array-bar {
+    width: 2px;
+    display: inline-block;
+    margin: 0 1px;
+  }
+
+  .array-size {
+    margin-top: 1rem;
+    width: 15%;
+  }
