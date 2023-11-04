@@ -1,14 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import HeaderBar from './components/HeaderBar';
-import ArrayBar from './components/ArrayBar';
+import PopupInfo from './components/PopUpInfo';
+
 
 function App() {
   return (
     <div className='main-container'>
       <div className="App">
         <HeaderBar />
-        <ArrayBar array={[12, 23, 40,52, 34, 69, 72, 84, 100, 36, 34,12, 23, 40,52, 34, 69]}/>
+        <PopupInfo/>
       </div>
     </div>
   );

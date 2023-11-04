@@ -3,26 +3,27 @@ import { Divider, Slider, Button } from '@mui/material/';
 import { useState } from 'react';
 
 export default function HeaderBar() {
-    const [isMerge, setIsMerge] = useState(false);
-    const [isHeap, setIsHeap] = useState(false);
-    const [isQuick, setIsQuick] = useState(false);
-    const [isBubble, setIsBubble] = useState(false);
-    const [isInsertion, setIsInsertion] = useState(false);
-    const [isSelection, setIsSelection] = useState(false);
+    const [selectedAlgorithm, setSelectedAlgorithm] = useState('');
 
-    const resetBtnStates = () => {
-        setIsMerge(false);
-        setIsHeap(false);
-        setIsQuick(false);
-        setIsBubble(false);
-        setIsInsertion(false);
-        setIsSelection(false);
-    }
+    const algorithms = [
+        { name: 'Merge', key: 'merge' },
+        { name: 'Heap', key: 'heap' },
+        { name: 'Quick', key: 'quick' },
+        { name: 'Bubble', key: 'bubble' },
+        { name: 'Insertion', key: 'insertion' },
+        { name: 'Selection', key: 'selection' },
+    ];
     
-    const handleClick = (callbackFunc, btnState) => {
-        resetBtnStates();
-        callbackFunc(!btnState);
-    }
+    const handleAlgorithmClick = (algorithmKey) => {
+        setSelectedAlgorithm(algorithmKey === selectedAlgorithm ? '' : algorithmKey);
+    };
+
+    const getButtonStyle = (algorithmKey) => ({
+        fontWeight: selectedAlgorithm === algorithmKey ? 'bold' : 'normal',
+        textDecoration: selectedAlgorithm === algorithmKey ? 'underline' : 'none',
+        fontSize: selectedAlgorithm === algorithmKey ? '16px' : '0.875rem',
+        textTransform: 'capitalize',
+    });
 
   return (
     <div className="array-container">
@@ -52,108 +53,22 @@ export default function HeaderBar() {
             />
         </div>
         <Divider orientation="vertical" flexItem variant="middle" />
-        <Button 
-        variant="text"
-        sx={isMerge ? {
-            fontWeight:'bold',
-            textDecoration:'underline',
-            fontSize: '16px',
-            textTransform: 'capitalize'
-        } : {
-            fontSize: '0.875rems',
-            textTransform: 'capitalize'
-        }}
-        onClick={(e) => handleClick(setIsMerge, isMerge)}
-        >
-            Merge
-        </Button>
-
-        <Button 
-        variant="text"
-        sx={isHeap ? {
-            fontWeight:'bold',
-            textDecoration:'underline',
-            fontSize: '16px',
-            textTransform: 'capitalize'
-        } : {
-            fontSize: '0.875rems',
-            textTransform: 'capitalize'
-        }}
-        onClick={(e) => handleClick(setIsHeap, isHeap)}
-        >
-            Heap
-        </Button>
-
-        <Button 
-        variant="text"
-        sx={isQuick ? {
-            fontWeight:'bold',
-            textDecoration:'underline',
-            fontSize: '16px',
-            textTransform: 'capitalize'
-        } : {
-            fontSize: '0.875rems',
-            textTransform: 'capitalize'
-        }}
-        onClick={(e) => handleClick(setIsQuick, isQuick)}
-        >
-            Quick
-        </Button>
-       
-        <Button 
-        variant="text"
-        sx={isBubble ? {
-            fontWeight:'bold',
-            textDecoration:'underline',
-            fontSize: '16px',
-            textTransform: 'capitalize'
-        } : {
-            fontSize: '0.875rems',
-            textTransform: 'capitalize'
-        }}
-        onClick={(e) => handleClick(setIsBubble, isBubble)}
-        >
-            Bubble
-        </Button>
-
-        <Button 
-        variant="text"
-        sx={isInsertion ? {
-            fontWeight:'bold',
-            textDecoration:'underline',
-            fontSize: '16px',
-            textTransform: 'capitalize'
-        } : {
-            fontSize: '0.875rems',
-            textTransform: 'capitalize'
-        }}
-        onClick={(e) => handleClick(setIsInsertion, isInsertion)}
-        >
-            Insertion
-        </Button>
         
-        <Button 
-        variant="text"
-        sx={isSelection ? {
-            fontWeight:'bold',
-            textDecoration:'underline',
-            fontSize: '16px',
-            textTransform: 'capitalize'
-        } : {
-            fontSize: '0.875rems',
-            textTransform: 'capitalize'
-        }}
-        onClick={(e) => handleClick(setIsSelection, isSelection)}
-        >
-            Selection
-        </Button>
+        {algorithms.map((algorithm) => (
+                <Button
+                    key={algorithm.key}
+                    variant="text"
+                    sx={getButtonStyle(algorithm.key)}
+                    onClick={() => handleAlgorithmClick(algorithm.key)}
+                >
+                    {algorithm.name}
+                </Button>
+            ))}
 
-        <Divider orientation="vertical" flexItem variant="middle" />
-        <Button variant="contained"
-        sx={{textTransform: 'capitalize'}}
-        >
-        Sort!
-        </Button>
-      </div>
-  );
+            <Divider orientation="vertical" flexItem variant="middle" />
+            <Button variant="contained" sx={{ textTransform: 'capitalize' }}>
+                Sort!
+            </Button>
+        </div>
+    );
 }
