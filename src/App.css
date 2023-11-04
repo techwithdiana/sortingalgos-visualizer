@@ -5,14 +5,19 @@
 .main-container {
   height: 100vh;
   width: 100vw;
-  background-image: linear-gradient(
-    to bottom right,
-    #265077,
-    #022140,
-    #494b68,
-    #1e4258,
-    #2d575d
-  );
+  background-image: linear-gradient(to right top, 
+  #055165, 
+  #004d68, 
+  #00496a, 
+  #00456b, 
+  #00406c, 
+  #003e68, 
+  #003d65, 
+  #003b61, 
+  #003b58, 
+  #003a4d, 
+  #003843, 
+  #0e3639);
 }
 
 .App-logo {
