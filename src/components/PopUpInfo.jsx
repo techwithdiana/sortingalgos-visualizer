@@ -1,7 +1,7 @@
-import '../styles/HeaderBar.css';
+import '../styles/PopUpInfo.css';
 import { Drawer,Box, Button } from '@mui/material/';
 
-export default function PopupInfo(props) {
+export default function PopUpInfo(props) {
     const algorithmInfo = {
         merge: {
             title: 'Merge Sort',
@@ -78,15 +78,13 @@ export default function PopupInfo(props) {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
         }
-    
-        setState({ ...state, [anchor]: open });
     };
 
     return (
         <Drawer anchor={anchor} open={true} onClose={() => toggleDrawer()} sx={{ width: 300 }}>
             <Box p={2}>
                 <h2>{info.title}</h2>
-                <Button variant="contained" onClick={() => onClose()}>Close</Button>
+                <Button variant="contained">Close</Button>
                 <p><strong>Time Complexity:</strong> {info.timeComplexity}</p>
                 <p><strong>Pseudocode Example:</strong></p>
                 <pre>{info.pseudoCode}</pre>

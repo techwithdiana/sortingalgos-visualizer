@@ -1,7 +1,7 @@
 import '../styles/HeaderBar.css';
 import { Divider, Slider, Button } from '@mui/material/';
 import { useState } from 'react';
-import {PopUpInfo} from './PopUpInfo.jsx';
+import PopUpInfo from './PopUpInfo.jsx';
 
 export default function HeaderBar() {
     const [selectedAlgorithm, setSelectedAlgorithm] = useState('');
@@ -70,9 +70,8 @@ export default function HeaderBar() {
             <Button variant="contained" sx={{ textTransform: 'capitalize' }}>
                 Sort!
             </Button>
-        
+            
             <PopUpInfo selectedAlgorithm={selectedAlgorithm} />
      </div>
-
     );
 }
