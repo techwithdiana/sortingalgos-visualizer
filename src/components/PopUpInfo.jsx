@@ -1,8 +1,7 @@
-import React from 'react';
-import '../styles/PopUpInfo.css';
-import '../components/HeaderBar.jsx'
+import '../styles/HeaderBar.css';
+import { Drawer,Box, Button } from '@mui/material/';
 
-export default function PopupInfo({ selectedAlgorithm, onClose }) {
+export default function PopupInfo(props) {
     const algorithmInfo = {
         merge: {
             title: 'Merge Sort',
@@ -67,26 +66,32 @@ export default function PopupInfo({ selectedAlgorithm, onClose }) {
         },
     };
 
-    const info = algorithmInfo[selectedAlgorithm];
+    const info = algorithmInfo[props.selectedAlgorithm];
 
     if (!info) {
         return null;
     }
 
+    const anchor = 'right'; // Change the anchor to 'right' for the right-sided Drawer
+    
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+          return;
+        }
+    
+        setState({ ...state, [anchor]: open });
+    };
+
     return (
-        <div className="popup-container">
-            <div className="popup">
-                <div className="popup-header">
-                    <h2>{info.title}</h2>
-                    <button className="close-button" onClick={onClose}>Close</button>
-                </div>
-                <div className="popup-content">
-                    <p><strong>Time Complexity:</strong> {info.timeComplexity}</p>
-                    <p><strong>Pseudocode Example:</strong></p>
-                    <pre>{info.pseudoCode}</pre>
-                    <p><strong>Description:</strong> {info.description}</p>
-                </div>
-            </div>
-        </div>
+        <Drawer anchor={anchor} open={true} onClose={() => toggleDrawer()} sx={{ width: 300 }}>
+            <Box p={2}>
+                <h2>{info.title}</h2>
+                <Button variant="contained" onClick={() => onClose()}>Close</Button>
+                <p><strong>Time Complexity:</strong> {info.timeComplexity}</p>
+                <p><strong>Pseudocode Example:</strong></p>
+                <pre>{info.pseudoCode}</pre>
+                <p><strong>Description:</strong> {info.description}</p>
+            </Box>
+        </Drawer>
     );
 }
