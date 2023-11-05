@@ -2,7 +2,6 @@ import { MakeDelay, Swap } from "../utils/AnimationHelper";
 
 export async function bubbleSort() {
 	var arr = document.querySelectorAll('.array-bar');
-	//document.getElementById("bsort").className = 'btndisabled';
 	var n = arr.length
 
 	for (var i = 0; i < n; i++) {
