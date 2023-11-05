@@ -1,19 +1,6 @@
 import '../styles/ArrayBar.css';
 import React from "react";
 
-const bubbleSort = (arr) => {
-  for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = 0; j < arr.length - i - 1; j++) {
-
-      if (arr[j] > arr[j + 1]) {
-        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-      }
-    }
-  }
-
-  return arr;
-}
-
 export default function ArrayBar(props) {
 
     return (
@@ -25,6 +12,9 @@ export default function ArrayBar(props) {
             style={{
               backgroundColor: '#8CD5FC',
               height: `${value}px`,
+              WebkitTransition: `background-color 100ms linear`,
+							msTransition: `background-color 100ms linear`,
+							transition: `background-color 100ms linear`
             }}></div>
         ))}
       </div>

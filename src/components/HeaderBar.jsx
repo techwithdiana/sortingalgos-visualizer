@@ -3,8 +3,12 @@ import { Divider, Slider, Button } from '@mui/material/';
 import { useState } from 'react';
 import PopUpInfo from './PopUpInfo.jsx';
 
+// Sorting Algorithms
+import { bubbleSort } from '../algorithms/BubbleSort';
+
 export default function HeaderBar() {
     const [selectedAlgorithm, setSelectedAlgorithm] = useState('');
+    const [isSorting, setIsSorting] = useState(false);
 
     const algorithms = [
         { name: 'Merge', key: 'merge' },
@@ -14,9 +18,24 @@ export default function HeaderBar() {
         { name: 'Insertion', key: 'insertion' },
         { name: 'Selection', key: 'selection' },
     ];
+
+    const sortFunction = { 
+        'bubble': bubbleSort,
+        'merge': bubbleSort,
+        'heap': bubbleSort,
+        'quick': bubbleSort,
+        'insertion': bubbleSort,
+        'selection': bubbleSort
+    };
     
     const handleAlgorithmClick = (algorithmKey) => {
         setSelectedAlgorithm(algorithmKey === selectedAlgorithm ? '' : algorithmKey);
+    };
+
+    const handleSort = async () => {
+        setIsSorting(true);
+        await sortFunction[selectedAlgorithm]();
+        setIsSorting(false);
     };
 
     const getButtonStyle = (algorithmKey) => ({
@@ -40,6 +59,7 @@ export default function HeaderBar() {
                 textDecoration: 'none',
                 textTransform: 'capitalize'
             }}
+            disabled={isSorting}
             >
                 Generate Array
             </Button>
@@ -51,6 +71,7 @@ export default function HeaderBar() {
             marks
             min={5}
             max={50}
+            disabled={isSorting}
             />
         </div>
         <Divider orientation="vertical" flexItem variant="middle" />
@@ -61,13 +82,18 @@ export default function HeaderBar() {
                     variant="text"
                     sx={getButtonStyle(algorithm.key)}
                     onClick={() => handleAlgorithmClick(algorithm.key)}
+                    disabled={isSorting}
                 >
                     {algorithm.name}
                 </Button>
             ))}
 
             <Divider orientation="vertical" flexItem variant="middle" />
-            <Button variant="contained" sx={{ textTransform: 'capitalize' }}>
+            <Button 
+            variant="contained" 
+            sx={{ textTransform: 'capitalize' }}
+            onClick={() => handleSort()}
+            disabled={isSorting || selectedAlgorithm === ''}>
                 Sort!
             </Button>
             
