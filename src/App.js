@@ -1,5 +1,4 @@
 import HeaderBar from './components/HeaderBar';
-import PopUpInfo from './components/PopUpInfo'; 
 import './App.css'; 
 import ArrayBar from './components/ArrayBar';
 function App() {
