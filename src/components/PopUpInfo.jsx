@@ -10,7 +10,11 @@ export default function PopUpInfo(props) {
                 1. Divide the unsorted list into n sublists, each containing one element.
                 2. Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining.
             `,
-            description: 'Merge Sort is a divide-and-conquer sorting algorithm. It divides the unsorted list into n sublists, each with one element, and then repeatedly merges sublists to produce new sorted sublists until the entire list is sorted.',
+            description: 'Merge Sort is a divide-and-conquer sorting algorithm.',
+            description: 'It divides the unsorted list into n sublists,',
+            description: 'each with one element, and then repeatedly',
+            description: 'merges sublists to produce new sorted sublists',
+            description: 'until the entire list is sorted.',
         },
         heap: {
             title: 'Heap Sort',
@@ -81,7 +85,7 @@ export default function PopUpInfo(props) {
     };
 
     return (
-        <Drawer anchor={anchor} open={true} onClose={() => toggleDrawer()} sx={{ width: 300 }}>
+        <Drawer anchor={anchor} open={true} onClose={() => toggleDrawer(false)} sx={{ width: 800 }}>
             <Box p={2}>
                 <h2>{info.title}</h2>
                 <Button variant="contained">Close</Button>
