@@ -1,5 +1,5 @@
 import '../styles/PopUpInfo.css';
-import { Drawer,Box, Button } from '@mui/material/';
+import { Drawer, Box, Button } from '@mui/material/';
 
 export default function PopUpInfo(props) {
     const algorithmInfo = {
@@ -85,7 +85,7 @@ export default function PopUpInfo(props) {
     };
 
     return (
-        <Drawer anchor={anchor} open={true} onClose={() => toggleDrawer(false)} sx={{ width: 800 }}>
+        <Drawer anchor={anchor} open={true} onClose={() => toggleDrawer(false)} sx={{ maxWidth: 700 }}>
             <Box p={2}>
                 <h2>{info.title}</h2>
                 <Button variant="contained">Close</Button>
