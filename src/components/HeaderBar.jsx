@@ -5,10 +5,12 @@ import PopUpInfo from './PopUpInfo.jsx';
 
 // Sorting Algorithms
 import { bubbleSort } from '../algorithms/BubbleSort';
+import { generateArray } from '../utils/ArrayCreation.js';
 
-export default function HeaderBar() {
+export default function HeaderBar(props) {
     const [selectedAlgorithm, setSelectedAlgorithm] = useState('');
     const [isSorting, setIsSorting] = useState(false);
+    const [arrSize, setArrSize] = useState(5);
 
     const algorithms = [
         { name: 'Merge', key: 'merge' },
@@ -45,7 +47,7 @@ export default function HeaderBar() {
         textTransform: 'capitalize',
     });
 
-  return (
+    return (
     <div className="array-container">
         <h1 className='linear-wipe'>Sorting Algos</h1>
 
@@ -60,6 +62,7 @@ export default function HeaderBar() {
                 textTransform: 'capitalize'
             }}
             disabled={isSorting}
+            onClick={(e) => {props.setArrFunc(generateArray(arrSize))}}
             >
                 Generate Array
             </Button>
@@ -72,6 +75,7 @@ export default function HeaderBar() {
             min={5}
             max={50}
             disabled={isSorting}
+            onChange={ (e, val) => {setArrSize(val)} }
             />
         </div>
         <Divider orientation="vertical" flexItem variant="middle" />

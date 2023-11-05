@@ -1,12 +1,16 @@
 import HeaderBar from './components/HeaderBar';
 import './App.css'; 
 import ArrayBar from './components/ArrayBar';
+import { useState } from 'react';
+
 function App() {
+  const [arr, setArr] = useState([30, 10, 20, 50, 40]);
+
   return (
     <div className='main-container'>
       <div className="App">
-        <HeaderBar />
-        <ArrayBar array={[10, 40, 20, 30, 50, 70, 100, 80, 200, 150, 110, 90, 250, 150, 60, 170, 150]}/>
+        <HeaderBar setArrFunc={setArr} />
+        <ArrayBar array={arr}/>
       </div>
     </div>
   );
