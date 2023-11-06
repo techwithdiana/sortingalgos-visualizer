@@ -5,6 +5,10 @@ import PopUpInfo from './PopUpInfo.jsx';
 
 // Sorting Algorithms
 import { bubbleSort } from '../algorithms/BubbleSort';
+import { insertionSort } from '../algorithms/InsertionSort';
+import { mergeSort } from '../algorithms/MergeSort';
+import { selectionSort } from '../algorithms/SelectionSort';
+import { quickSort } from '../algorithms/QuickSort';
 import { generateArray } from '../utils/ArrayCreation.js';
 
 export default function HeaderBar(props) {
@@ -14,8 +18,8 @@ export default function HeaderBar(props) {
 
     const algorithms = [
         { name: 'Merge', key: 'merge' },
-        { name: 'Heap', key: 'heap' },
-        { name: 'Quick', key: 'quick' },
+        /*{ name: 'Heap', key: 'heap' },
+        { name: 'Quick', key: 'quick' },*/
         { name: 'Bubble', key: 'bubble' },
         { name: 'Insertion', key: 'insertion' },
         { name: 'Selection', key: 'selection' },
@@ -23,11 +27,11 @@ export default function HeaderBar(props) {
 
     const sortFunction = { 
         'bubble': bubbleSort,
-        'merge': bubbleSort,
+        'merge': mergeSort,
         'heap': bubbleSort,
-        'quick': bubbleSort,
-        'insertion': bubbleSort,
-        'selection': bubbleSort
+        'quick': quickSort,
+        'insertion': insertionSort,
+        'selection': selectionSort
     };
     
     const handleAlgorithmClick = (algorithmKey) => {
@@ -35,6 +39,7 @@ export default function HeaderBar(props) {
     };
 
     const handleSort = async () => {
+        console.log(selectedAlgorithm);
         setIsSorting(true);
         await sortFunction[selectedAlgorithm]();
         setIsSorting(false);
@@ -100,8 +105,9 @@ export default function HeaderBar(props) {
             disabled={isSorting || selectedAlgorithm === ''}>
                 Sort!
             </Button>
-            
-            <PopUpInfo selectedAlgorithm={selectedAlgorithm} />
+        
+           {/* <PopUpInfo selectedAlgorithm={selectedAlgorithm} />*/}
      </div>
+
     );
 }
