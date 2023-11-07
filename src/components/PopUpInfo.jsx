@@ -1,5 +1,4 @@
 import '../styles/PopUpInfo.css';
-import { Box, Button } from '@mui/material/';
 
 export default function PopUpInfo(props) {
     const algorithmInfo = {
