@@ -1,7 +1,7 @@
 .bar-container {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 25%;
   transform: translate(-50%,-50%);
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .array-bar {
-  width: 20px;
+  width: 10px;
   display: inline-block;
   margin: 0 1px;
 }

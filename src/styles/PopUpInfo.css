@@ -1,11 +1,33 @@
-/* Style for the Drawer content */
-.drawer-content {
-    width: 300px;
-    padding: 20px;
-  }
-  
-  /* Style for the close button */
-  .close-button {
-    margin-top: 20px;
-  }
-  
+.sortInfo{
+  max-width: 450px;
+  white-space: pre-wrap;
+  margin-right: 5rem;
+  color: white;
+  text-align: left;
+  display:flex;
+  flex-direction: column;
+
+}
+
+.title{
+  text-decoration: underline 1px;
+}
+
+.grid-container {
+  max-width: 70%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-radius: 10px;
+  padding: 4px;
+
+}
+
+.grid-item {
+  grid-column: span 3;
+  background-color:transparent;
+  border: 1px solid whitesmoke;
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+  box-sizing: border-box;
+}
