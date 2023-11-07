@@ -1,6 +1,6 @@
 import '../styles/HeaderBar.css';
 import { Divider, Slider, Button } from '@mui/material/';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Sorting Algorithms
 import { bubbleSort } from '../algorithms/BubbleSort';
@@ -14,6 +14,11 @@ export default function HeaderBar(props) {
     const [selectedAlgorithm, setSelectedAlgorithm] = useState('');
     const [isSorting, setIsSorting] = useState(false);
     const [arrSize, setArrSize] = useState(5);
+
+    useEffect(() => {
+        props.setArrFunc(generateArray(arrSize));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [arrSize])
 
     const algorithms = [
         { name: 'Merge', key: 'merge' },
@@ -54,7 +59,7 @@ export default function HeaderBar(props) {
 
     return (
     <div className="array-container">
-        <h1 className='linear-wipe'>Sorting Algos</h1>
+        <h1 className='header-title'>Sorting Algos</h1>
 
         <Divider orientation="vertical" flexItem variant="middle" />
         <div className='array-size'>
