@@ -1,7 +1,6 @@
 import '../styles/HeaderBar.css';
 import { Divider, Slider, Button } from '@mui/material/';
 import { useState } from 'react';
-import PopUpInfo from './PopUpInfo.jsx';
 
 // Sorting Algorithms
 import { bubbleSort } from '../algorithms/BubbleSort';
@@ -36,6 +35,7 @@ export default function HeaderBar(props) {
     
     const handleAlgorithmClick = (algorithmKey) => {
         setSelectedAlgorithm(algorithmKey === selectedAlgorithm ? '' : algorithmKey);
+        props.setCurAlgFunc(algorithmKey === selectedAlgorithm ? '' : algorithmKey);
     };
 
     const handleSort = async () => {
@@ -105,8 +105,6 @@ export default function HeaderBar(props) {
             disabled={isSorting || selectedAlgorithm === ''}>
                 Sort!
             </Button>
-        
-           {/* <PopUpInfo selectedAlgorithm={selectedAlgorithm} />*/}
      </div>
 
     );

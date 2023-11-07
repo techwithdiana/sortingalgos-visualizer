@@ -1,10 +1,10 @@
-import { FINAL_COLOR, MakeDelay, POSITION_FINAL_COLOR, PRIMARY_COLOR, COMPARE_COLOR, SWAP_COLOR, Swap, MIN_COLOR} from "../utils/AnimationHelper";
+import { delay, FINAL_COLOR, MakeDelay, POSITION_FINAL_COLOR, PRIMARY_COLOR, COMPARE_COLOR, SWAP_COLOR, Swap, MIN_COLOR} from "../utils/AnimationHelper";
 
 async function partition(ele, s, e) {
 	const n = 0;
 	Swap(ele[n], ele[e]);
 
-	await MakeDelay(100);
+	await MakeDelay(delay);
 	ele[e].style.background = MIN_COLOR;   // current pivot color 
 
 	var m = s;
@@ -15,11 +15,11 @@ async function partition(ele, s, e) {
 		if (parseInt(ele[i].style.height) < parseInt(ele[pivot].style.height)) {
 
 			ele[m].style.background = COMPARE_COLOR;
-			await MakeDelay(100);
+			await MakeDelay(delay);
 
 			Swap(ele[i], ele[m]);
 
-			await MakeDelay(100);
+			await MakeDelay(delay);
 			ele[i].style.background = SWAP_COLOR;
 			ele[m].style.background = SWAP_COLOR;
 			if (m !== s) {
@@ -28,15 +28,15 @@ async function partition(ele, s, e) {
 
 			m += 1;
 		}
-		await MakeDelay(100);
+		await MakeDelay(delay);
 		ele[i].style.background = PRIMARY_COLOR;
 		ele[m].style.background = PRIMARY_COLOR;
 	}
 
 	ele[e].style.background = PRIMARY_COLOR;    // pivot to orginal color
-	await MakeDelay(100);
+	await MakeDelay(delay);
 	Swap(ele[m], ele[pivot]);
-	await MakeDelay(100);
+	await MakeDelay(delay);
 	ele[m].style.background = POSITION_FINAL_COLOR;
 
 	return m;
@@ -59,7 +59,7 @@ export async function quickSort() {
 	var n = arr.length;
 	await quickSortHelper(arr, 0, n - 1);
 	for (var i = 0; i < n; i++) {
-		await MakeDelay(100)
+		await MakeDelay(delay)
 		arr[i].style.background = FINAL_COLOR;
 	}
 }

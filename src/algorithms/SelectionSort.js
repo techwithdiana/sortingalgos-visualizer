@@ -1,4 +1,4 @@
-import { MakeDelay, Swap, COMPARE_COLOR, MIN_COLOR, SWAP_COLOR, PRIMARY_COLOR, POSITION_FINAL_COLOR, FINAL_COLOR } from "../utils/AnimationHelper";
+import { delay, MakeDelay, Swap, COMPARE_COLOR, MIN_COLOR, SWAP_COLOR, PRIMARY_COLOR, POSITION_FINAL_COLOR, FINAL_COLOR } from "../utils/AnimationHelper";
 
 export async function selectionSort() {
 	var arr = document.querySelectorAll('.array-bar');
@@ -14,11 +14,11 @@ export async function selectionSort() {
 
 			if (parseInt(arr[j].style.height) < parseInt(arr[min].style.height)) {
 				arr[min].style.background = PRIMARY_COLOR;
-				await MakeDelay(100)
+				await MakeDelay(delay)
 				min = j;
 			}
 			else {
-				await MakeDelay(100)
+				await MakeDelay(delay)
 				arr[j].style.background = PRIMARY_COLOR;
 			}
 
@@ -29,19 +29,19 @@ export async function selectionSort() {
 			arr[i].style.background = SWAP_COLOR;
 			arr[min].style.background = SWAP_COLOR;
 
-			await MakeDelay(100);
+			await MakeDelay(delay);
 			arr[min].style.background = PRIMARY_COLOR;
 			arr[i].style.background = PRIMARY_COLOR;
 
 			Swap(arr[min], arr[i]);
 		}
 
-		await MakeDelay(100)
+		await MakeDelay(delay)
 		arr[i].style.background = POSITION_FINAL_COLOR
 	}
 
 	for (i = 0; i < n; i++) {
-		await MakeDelay(100)
+		await MakeDelay(delay)
 		arr[i].style.background = FINAL_COLOR;
 	}
 }

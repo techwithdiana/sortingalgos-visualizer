@@ -1,4 +1,4 @@
-import { COMPARE_COLOR,FINAL_COLOR, MakeDelay, POSITION_FINAL_COLOR, PRIMARY_COLOR, Swap, SWAP_COLOR } from "../utils/AnimationHelper";
+import { COMPARE_COLOR,FINAL_COLOR, MakeDelay, POSITION_FINAL_COLOR, PRIMARY_COLOR, Swap, SWAP_COLOR, delay } from "../utils/AnimationHelper";
 
 var n;
 
@@ -23,14 +23,14 @@ async function inPlaceMerge(arr, s, e) {
 			var j = i + g;
 			arr[i].style.background = COMPARE_COLOR;
 			arr[j].style.background = COMPARE_COLOR;
-			await MakeDelay(100);
+			await MakeDelay(delay);
 			if (parseInt(arr[i].style.height) > parseInt(arr[j].style.height)) {
 				arr[i].style.background = SWAP_COLOR;
 				arr[j].style.background = SWAP_COLOR;
-				await MakeDelay(100);
+				await MakeDelay(delay);
 				Swap(arr[i], arr[j]);
 			}
-			await MakeDelay(100);
+			await MakeDelay(delay);
 			if (e === n && s === 0) {
 				arr[i].style.background = POSITION_FINAL_COLOR;
 				arr[j].style.background = POSITION_FINAL_COLOR;
@@ -61,7 +61,7 @@ export async function mergeSort() {
 	n = arr.length;
 	await mergeSortHelper(arr, 0, n - 1);
 	for (var i = 0; i < n; i++) {
-		await MakeDelay(100)
+		await MakeDelay(delay)
 		arr[i].style.background = FINAL_COLOR;
 	}
 }
