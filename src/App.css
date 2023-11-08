@@ -4,13 +4,32 @@
 
 .visualizer-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: center;
+  transition: all ease-in-out 0.5s;
+
+  -webkit-animation: visualizer-container 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: visualizer-container 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-.main-container {
-  height: 100vh;
-  width: 100vw;
+@-webkit-keyframes visualizer-container {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes visualizer-container {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
   background-image: linear-gradient(to right top, 
   #055165, 
   #004d68, 
@@ -24,6 +43,9 @@
   #003a4d, 
   #003843, 
   #0e3639);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .App-logo {
@@ -58,5 +80,11 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1170px) {
+  .visualizer-container {
+    flex-direction: column;
   }
 }

@@ -1,8 +1,8 @@
 import { MakeDelay, Swap, delay, COMPARE_COLOR, SWAP_COLOR, PRIMARY_COLOR, POSITION_FINAL_COLOR, FINAL_COLOR } from "../utils/AnimationHelper";
 
 export async function bubbleSort() {
-	var arr = document.querySelectorAll('.array-bar');
-	var n = arr.length
+	const arr = document.querySelectorAll('.array-bar');
+	const n = arr.length
 
 	for (var i = 0; i < n; i++) {
 		for (let j = 0; j < n - i - 1; j++) {

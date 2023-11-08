@@ -10,6 +10,13 @@ export function MakeDelay(milisec) {
 	})
 }
 
+export function resetBarColors() {
+	const arr = document.querySelectorAll('.array-bar');
+        
+    arr.forEach((bar) => {
+         bar.style.background = '#8CD5FC';
+    });
+}
 
 export const delay = 50
 export const PRIMARY_COLOR = 'rgb(113, 165, 255)';

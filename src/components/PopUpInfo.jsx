@@ -18,7 +18,7 @@ export default function PopUpInfo(props) {
           ,
             description: 
             <div>
-                <p>Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.</p>
+                <p>Merge Sort is a sorting algorithm based on the Divide and Conquer technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.</p>
                 <p>The algorithm divides the data structure recursively until the subsequences contain only one element. At this point, the subsequences get merged and ordered sequentially. To do so, the algorithm progressively builds the sorted sublist by adding each time the minimum element of the next two unsorted subsequences until there is only one sublist remaining. This will be the sorted data structure.</p>
             </div>
         },
@@ -96,7 +96,10 @@ export default function PopUpInfo(props) {
         <div className='sortInfo'>
             <h2 className='title'>{info.title}</h2>
             <p><strong>Time Complexity:</strong> {info.timeComplexity}</p>
-            <p><strong>Description:</strong> {info.description}</p>
+            <p>
+                <strong>Description:</strong> 
+                <div className='sortDesc'>{info.description}</div>
+            </p>
         </div>
     );
 }

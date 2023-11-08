@@ -1,15 +1,14 @@
-.sortInfo{
+.sortInfo {
   max-width: 450px;
   white-space: pre-wrap;
-  margin-right: 5rem;
+  margin-right: 2rem;
   color: white;
   text-align: left;
   display:flex;
   flex-direction: column;
-
 }
 
-.title{
+.title {
   text-decoration: underline 1px;
 }
 
@@ -30,4 +29,10 @@
   font-size: 15px;
   text-align: center;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 1170px) {
+  .sortInfo {
+    margin: 0;
+  }
 }
