@@ -14,7 +14,7 @@ import { quickSort } from '../algorithms/QuickSort';
 export default function HeaderBar(props) {
     const [selectedAlgorithm, setSelectedAlgorithm] = useState('');
     const [isSorting, setIsSorting] = useState(false);
-    const [arrSize, setArrSize] = useState(5);
+    const [arrSize, setArrSize] = useState(25);
 
     useEffect(() => {
         props.setArrFunc(generateArray(arrSize));
@@ -85,7 +85,7 @@ export default function HeaderBar(props) {
             </Button>
             <Slider
             aria-label="Array Size"
-            defaultValue={5}
+            defaultValue={25}
             valueLabelDisplay="auto"
             step={5}
             marks
