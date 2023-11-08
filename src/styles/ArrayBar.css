@@ -1,15 +1,19 @@
 .bar-container {
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-50%,-50%);
+  position: bottom;
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: flex-end;
+  margin-left: 1.5rem;
+  min-width: 600px;
 }
 
 .array-bar {
   width: 10px;
   display: inline-block;
-  margin: 0 1px;
+}
+
+@media screen and (max-width: 1170px) {
+  .bar-container {
+    margin: 1rem 0;
+  }
 }

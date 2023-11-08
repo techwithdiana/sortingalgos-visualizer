@@ -1,6 +1,8 @@
 import '../styles/HeaderBar.css';
 import { Divider, Slider, Button } from '@mui/material/';
 import { useState, useEffect } from 'react';
+import { generateArray } from '../utils/ArrayCreation.js';
+import { resetBarColors } from '../utils/AnimationHelper.js';
 
 // Sorting Algorithms
 import { bubbleSort } from '../algorithms/BubbleSort';
@@ -8,7 +10,6 @@ import { insertionSort } from '../algorithms/InsertionSort';
 import { mergeSort } from '../algorithms/MergeSort';
 import { selectionSort } from '../algorithms/SelectionSort';
 import { quickSort } from '../algorithms/QuickSort';
-import { generateArray } from '../utils/ArrayCreation.js';
 
 export default function HeaderBar(props) {
     const [selectedAlgorithm, setSelectedAlgorithm] = useState('');
@@ -17,6 +18,7 @@ export default function HeaderBar(props) {
 
     useEffect(() => {
         props.setArrFunc(generateArray(arrSize));
+        resetBarColors();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [arrSize])
 
@@ -42,6 +44,11 @@ export default function HeaderBar(props) {
         setSelectedAlgorithm(algorithmKey === selectedAlgorithm ? '' : algorithmKey);
         props.setCurAlgFunc(algorithmKey === selectedAlgorithm ? '' : algorithmKey);
     };
+
+    const handleGenerateArray = () => {
+        props.setArrFunc(generateArray(arrSize));
+        resetBarColors();
+    }
 
     const handleSort = async () => {
         console.log(selectedAlgorithm);
@@ -72,7 +79,7 @@ export default function HeaderBar(props) {
                 textTransform: 'capitalize'
             }}
             disabled={isSorting}
-            onClick={(e) => {props.setArrFunc(generateArray(arrSize))}}
+            onClick={handleGenerateArray}
             >
                 Generate Array
             </Button>
