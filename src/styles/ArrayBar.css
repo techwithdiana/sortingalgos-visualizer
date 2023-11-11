@@ -7,6 +7,12 @@
   min-width: 600px;
 }
 
+.array-size {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .bar-container:only-child {
   position: absolute;
   top: 50%;

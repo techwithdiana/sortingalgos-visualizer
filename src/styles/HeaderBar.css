@@ -1,5 +1,5 @@
 .array-container {
-    background-color: lightblue;
+    background-color: #2b3237;
     width: 100vw;
     padding-bottom: 0.25em;
     display: flex;
@@ -17,8 +17,27 @@
   .array-size {
     margin-top: 0.25rem;
     width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .array-size button {
+    margin-left: 1.5rem;
   }
 
   .header-title {
-    color: #055165;
+    color: #F4FDFF;
+  }
+
+  @media screen and (max-width: 1170px) {
+    .array-size {
+      width: 20%;
+    }
+  }
+
+  @media screen and (max-width: 985px) {
+    .array-size {
+      width: 20%;
+    }
   }

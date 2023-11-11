@@ -1,7 +1,7 @@
 import { delay, FINAL_COLOR, MakeDelay, POSITION_FINAL_COLOR, PRIMARY_COLOR, COMPARE_COLOR, SWAP_COLOR, Swap, MIN_COLOR} from "../utils/AnimationHelper";
 
 async function partition(ele, s, e) {
-	const n = 0;
+	const n = s;
 	Swap(ele[n], ele[e]);
 
 	await MakeDelay(delay);
@@ -55,8 +55,8 @@ async function quickSortHelper(ele, s, e) {
 	return;
 }
 export async function quickSort() {
-	var arr = document.querySelectorAll('.array-bar');
-	var n = arr.length;
+	const arr = document.querySelectorAll('.array-bar');
+	const n = arr.length;
 	await quickSortHelper(arr, 0, n - 1);
 	for (var i = 0; i < n; i++) {
 		await MakeDelay(delay)
